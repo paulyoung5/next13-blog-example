@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { fetchPost } from '../../../lib/post'
-import { fetchUser } from '../../../lib/user'
+import { EXAMPLE_POST_IDS, fetchPost } from '../../../lib/posts'
+import { fetchUser } from '../../../lib/users'
 
 /**
  * Cache post pages for 
@@ -16,7 +16,7 @@ export function generateStaticParams() {
    * rendered to static HTML during build
    * (IDs hardcoded for sandbox)
    */
-  const postIds = [1, 2, 3, 4, 5]
+  const postIds = EXAMPLE_POST_IDS
 
   /**
    * Return an array of objects with `postId` property

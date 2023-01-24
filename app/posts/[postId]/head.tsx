@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { fetchPost } from '../../../lib/post'
+import { fetchPost } from '../../../lib/posts'
 
 export default async function Head({ params }: {
   params: {

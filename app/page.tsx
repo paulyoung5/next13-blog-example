@@ -1,15 +1,15 @@
 import Link from 'next/link'
+import { EXAMPLE_POST_IDS } from '../lib/posts'
 
 export default function Homepage() {
-  const examples = [
-    '/posts/1',
-    '/posts/2',
-    '/posts/3',
-    '/posts/4',
-  ]
+  const examplePostLinks = EXAMPLE_POST_IDS
+    .map(postId => `/posts/${postId}`)
 
   return (
-    <main>
+    <main style={{
+      margin: '0 auto',
+      maxWidth: '960px'
+    }}>
       <h1>Blog</h1>
 
       <h3>Check out some recent posts</h3>
@@ -19,7 +19,7 @@ export default function Homepage() {
         gap: '1rem',
         gridTemplateColumns: '1fr 1fr'
       }}>
-        {examples.map((page, i) => (
+        {examplePostLinks.map((page, i) => (
           <Link key={page} href={page} style={{
             padding: '1em',
             background: '#e3e3e3'
