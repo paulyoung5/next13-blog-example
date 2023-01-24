@@ -1,31 +1,8 @@
-import { cache } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-const POSTS_API_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts'
-const USERS_API_ENDPOINT = 'https://jsonplaceholder.typicode.com/users'
-
-const fetchPost = cache(async (postId: string): Promise<{
-  userId: number
-  id: number
-  title: string
-  body: string
-} | null> => {
-  const response = await fetch(`${POSTS_API_ENDPOINT}/${postId}`)
-  const post = response.json() || null
-
-  return post
-})
-
-const fetchUser = cache(async (userId: string): Promise<{
-  id: number;
-  username: string;
-} | null> => {
-  const response = await fetch(`${USERS_API_ENDPOINT}/${userId}`)
-  const user = response.json() || null
-
-  return user
-})
+import { fetchPost } from '../../../lib/post'
+import { fetchUser } from '../../../lib/user'
 
 /**
  * Cache post pages for 
@@ -62,8 +39,6 @@ export default async function PostPage({ params }: {
   }
 
   const post = await fetchPost(params.postId)
-
-  // Fetch the user for this post
   const user = post
     ? await fetchUser(post?.userId.toString())
     : null
