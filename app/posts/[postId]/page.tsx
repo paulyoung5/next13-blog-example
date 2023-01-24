@@ -48,14 +48,14 @@ export default async function PostPage({ params }: {
   }
 
   return (
-    <main>
+    <>
       <Link href="/">
-        Back to homepage
+        ← Back to homepage
       </Link>
       <h1>{post.title}</h1>
       <h2>by @{user.username}</h2>
 
       <p>{post.body}</p>
-    </main>
+    </>
   )
 }

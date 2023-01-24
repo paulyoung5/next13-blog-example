@@ -7,7 +7,12 @@ export default function RootLayout({
     <html>
       <head />
       <body style={{ fontFamily: 'sans-serif' }}>
-        {children}
+        <main style={{
+          margin: '0 auto',
+          maxWidth: '960px'
+        }}>
+          {children}
+        </main>
       </body>
     </html>
   )

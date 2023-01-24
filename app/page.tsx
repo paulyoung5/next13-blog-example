@@ -6,10 +6,7 @@ export default function Homepage() {
     .map(postId => `/posts/${postId}`)
 
   return (
-    <main style={{
-      margin: '0 auto',
-      maxWidth: '960px'
-    }}>
+    <>
       <h1>Blog</h1>
 
       <h3>Check out some recent posts</h3>
@@ -28,6 +25,6 @@ export default function Homepage() {
           </Link>
         ))}
       </nav>
-    </main>
+    </>
   )
 }
